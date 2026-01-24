@@ -1,0 +1,18 @@
+[user]
+	email = b.anshuman1305@gmail.com
+	name = ba-13
+[init]
+	defaultBranch = main
+[safe]
+	directory = /attached/ETHZ
+	directory = /attached/SHARED
+	directory = /attached/ETHZ/sem2/semproj/proj-sp-barnwal
+	directory = /attached/WEBSITE
+	directory = /attached/app-mini-projects
+	directory = /attached/REPO/idsc-frazzoli/gocarx
+	directory = /attached/REPO/idsc-frazzoli/gocarx/submodules/lexiopt
+	directory = /attached/REPO/idsc-frazzoli/gocarx/submodules/waymax
+[core]
+	autocrlf = false
+	editor = vim
+	fileMode = false
