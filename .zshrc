@@ -62,6 +62,10 @@ znap source marlonrichert/zsh-edit
 # `znap function`.
 #
 
+if [ -f ~/.aliases ]; then
+	source ~/.aliases
+fi
+
 # Personal paths
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/mybin:$PATH"
@@ -95,5 +99,4 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# uv path
 . "$HOME/.local/share/../bin/env"
