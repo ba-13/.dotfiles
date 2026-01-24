@@ -30,6 +30,7 @@ set encoding=utf-8
 " No swap files
 set noswapfile
 set nobackup
+set nowritebackup
 
 " Visual Mode enhancement
 set virtualedit+=onemore
@@ -147,3 +148,4 @@ set background=dark
 nmap <C-Z> :vsplit <bar> :wincmd l <bar> :FSRight<CR>
 
 set clipboard=unnamed
+
