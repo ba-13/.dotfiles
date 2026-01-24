@@ -4,45 +4,6 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" Set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-" Download plug-ins to the ~/.vim/plugged/ directory
-"call vundle#begin('~/.vim/plugged')
-" Let Vundle manage Vundle
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'sheerun/vim-polyglot'
-
-" Themes
-"Plugin 'cocopon/iceberg.vim'
-"Plugin 'arcticicestudio/nord-vim'
-"Plugin 'Badacadabra/vim-archery'
-"Plugin 'kristijanhusak/vim-hybrid-material'
-"Plugin 'scheakur/vim-scheakur'
-"Plugin 'lifepillar/vim-solarized8'
-
-" Auto Pair Completion
-"Plugin 'jiangmiao/auto-pairs'
-
-" File Browsing
-"Plugin 'preservim/nerdtree'
-" For Tagging
-"Plugin 'preservim/tagbar'
-" For Searching
-"Plugin 'dyng/ctrlsf.vim'
-" Companion files compatibility
-"Plugin 'derekwyatt/vim-fswitch'
-" Pull function prototypes from .h
-"Plugin 'derekwyatt/vim-protodef'
-" Move lines now!
-"Plugin 'matze/vim-move'
-"call vundle#end()
-
-" Turn on syntax highlighting
-syntax on
-
-" For plugins to load correctly
-filetype plugin indent on
-
 " Pick a leader key
 let mapleader = ","
 
@@ -169,14 +130,6 @@ let g:solarized_termtrans=1
 "inoremap {;<CR> {<CR>};<ESC>O
 let g:AutoPairsShortcutToggle = '<C-P>'
 
-" Tagbar
-" Focus the panel when opening it
-let g:tagbar_autofocus = 1
-" Highlight the active tag
-let g:tagbar_autoshowtag = 1
-" Make panel vertical and place on the right
-let g:tagbar_position = 'botright vertical'
-
 " Save on focus lost
 " au FocusLost * :wa
 
@@ -187,57 +140,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-"nnoremap <leader>n :NERDTreeFocus<CR>
-"nnoremap <C-b> :NERDTreeToggle<CR>
-"nnoremap <C-f> :NERDTreeFind<CR>
 
 set background=dark
 "colorscheme hybrid_material
-
-" NERDTree
-let NERDTreeShowBookmarks = 1
-let NERDTreeShowHidden = 1
-let NERDTreeShowLineNumbers = 0
-let NERDTreeMinimalMenu = 1
-let NERDTreeWinPos = "left"
-let NERDTreeWinSize = 31
-let NERDTreeMinimalUI = 0 
-
-" CtrlFS
-" Use the ack tool as the backend
-let g:ctrlsf_backend = 'ack'
-" Auto close the results panel when opening a file
-let g:ctrlsf_auto_close = { "normal":0, "compact":0 }
-" Immediately switch focus to the search window
-let g:ctrlsf_auto_focus = { "at":"start" }
-" Don't open the preview window automatically
-let g:ctrlsf_auto_preview = 0
-" Use the smart case sensitivity search scheme
-let g:ctrlsf_case_sensitive = 'smart'
-" Normal mode, not compact mode
-let g:ctrlsf_default_view = 'normal'
-" Use absoulte search by default
-let g:ctrlsf_regex_pattern = 0
-" Position of the search window
-let g:ctrlsf_position = 'right'
-" Width or height of search window
-let g:ctrlsf_winsize = '46'
-" Search from the current working directory
-let g:ctrlsf_default_root = 'cwd'
-
-"nmap <F2> :NERDTreeToggle<CR>
-"nmap <F8> :TagbarToggle<CR>
-
-" (Ctrl+F) Open search prompt (Normal Mode)
-nmap <C-F>f <Plug>CtrlSFPrompt
-" (Ctrl-F + f) Open search prompt with selection (Visual Mode)
-xmap <C-F>f <Plug>CtrlSFVwordPath
-" (Ctrl-F + t) Toggle CtrlSF window (Normal Mode)
-nnoremap <C-F>t :CtrlSFToggle<CR>
-
-" FSwitch
-"au! BufEnter *.cpp let b:fswitchdst = 'hpp,h'
-"au! BufEnter *.h let b:fswitchdst = 'cpp,c'
 
 nmap <C-Z> :vsplit <bar> :wincmd l <bar> :FSRight<CR>
 
