@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# creating a menu with the following options
+echo "SELECT STEP:";
+echo "1. Practice"
+echo "2. Contest"
+echo "3. Algorithms"
+echo "4. Exit from menu "
+echo -n "Enter your menu choice [1-4]: "
+
+# Running a forever loop using while statement
+# This loop will run untill select the exit option.
+# User will be asked to select option again and again
+# while :
+# do
+
+# reading choice
+read choice
+# basedir=/attached/Coding/C++
+basedir=$HOME/Documents/CODING/C++
+
+# case statement is used to compare one value with the multiple cases.
+case $choice in
+  # Pattern 1
+  1)  echo "You have selected the option Practice"
+      cd ${basedir}/ProblemSetsCF
+      code .
+      cd -
+      ;;
+  # Pattern 2
+  2)  echo "You have selected the option Contest"
+      cd ${basedir}/Contests
+      echo "Prefix?"
+      read prefix
+      folder_name=${prefix}_$(date +%Y%m%d)     
+      mkdir $folder_name
+      mkdir $folder_name/bin $folder_name/.vscode
+      touch $folder_name/.vscode/tasks.json
+      cp ~/bin/cp_tasks.json $folder_name/.vscode/tasks.json
+      touch ./$folder_name/A.cpp ./$folder_name/B.cpp ./$folder_name/C.cpp ./$folder_name/D.cpp ./$folder_name/_in.txt
+      code ./$folder_name
+      cd -
+      ;;
+  # Pattern 3
+  3)  echo "You have selected the option Algorithms"
+      cd ${basedir}/Standard_Algorithms
+      code .
+      cd -
+      ;;    
+  # Pattern 4
+  4)  echo "Quitting ..."
+      exit;;
+  # Default Pattern
+  *) echo "invalid option";;
+  
+esac
+  # echo -n "Enter your menu choice [1-4]: "
+# done

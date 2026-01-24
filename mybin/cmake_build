@@ -1,0 +1,29 @@
+#!/bin/bash
+
+folder=$(basename $PWD)
+if [ -d out ]; then
+  cmake -S . -B out/build/
+  if [ $? == '0' ]; then
+    echo "Created MakeFile"
+    echo ""
+    make -C out/build
+    if [ $? == '0' ]; then
+      echo "Built in ./out/build/"
+    fi
+  fi
+else
+  cmake -S . -B build/
+  if [ $? == '0' ]; then
+    echo "> Created MakeFile"
+    echo ""
+    make -C build/
+    if [ $? == '0' ]; then
+      echo "> Built in ./build/"
+      echo "> Run binary through \`./build/main_${folder}\`"
+    else
+      echo "> Build failed"
+    fi
+  else
+    echo "> CMake Failed to Compile"
+  fi
+fi

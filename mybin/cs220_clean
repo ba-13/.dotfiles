@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm *.vcd 2>/dev/null || echo "No .vcd files"
+rm *.vvp 2>/dev/null || echo "No .vvp files"
+rm *.out 2>/dev/null || echo "No .out files"

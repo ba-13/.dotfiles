@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Path to verilog testbench not provided as argument"
+  exit 1
+fi
+
+echo "Script to generate .vcd for your testbench"
+# IFS='/'
+# read -ra DIRS_ <<< "$1"
+# for i in "${DIRS_[@]}"; do
+#   echo "$i"
+# done
+# file=${DIRS[-1]}
+# file_=$( echo $file | cut -c 1-(end -1) )
+# echo $file_
+file_name=$(basename $1)
+base_file_name=$(basename $1 .v)
+vvp_file_name=$file_name.vvp
+
+mkdir -p ./bin/vvp ./bin/vcd
+iverilog -o ./bin/vvp/$vvp_file_name $file_name
+vvp ./bin/vvp/$vvp_file_name
+mv ./*.vcd ./bin/vcd/

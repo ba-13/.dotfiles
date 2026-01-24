@@ -1,0 +1,31 @@
+#!/bin/bash
+
+export DISPLAY=:1
+
+# time=$(date +%s)
+time=$(date +%H)
+# echo $time
+cd ~/my_log/
+
+year=$(date +%Y)
+if [ ! -d $year ]; then
+  mkdir $year
+fi
+
+cd $year
+
+date=$(date +%j)
+if [ ! -d $date ]; then
+  mkdir $date
+fi
+
+cd $date
+
+touch $time
+echo $(pwd)/$time
+
+/usr/bin/gnome-terminal -- vim -o $time
+if [ ! -s $time ]; then
+  echo "Deleting $(pwd)/$time"
+  rm $time
+fi
