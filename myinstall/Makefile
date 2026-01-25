@@ -33,3 +33,9 @@ ifeq ($(OS_ID), arch)
 else ifeq ($(OS_ID), ubuntu)
 	apt-mark showmanual > pkglist_ubuntu.txt
 endif
+
+systemctl-enable:
+	sudo systemctl enable NetworkManager
+	sudo systemctl enable iwd
+	systemctl --user enable pipewire wireplumber
+	sudo systemctl enable tlp.service
