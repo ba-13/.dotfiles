@@ -1,7 +1,6 @@
 #!/bin/zsh
 
-FILENAME=amdgpu_bl1
-curr=$(cat /sys/class/backlight/$FILENAME/actual_brightness)
-max=$(cat /sys/class/backlight/$FILENAME/max_brightness)
+curr=$(cat /sys/class/backlight/*/actual_brightness)
+max=$(cat /sys/class/backlight/*/max_brightness)
 val=$(( (100.0 * $curr) / $max ))
 echo $val | awk '{print int($1+0.5)}'
