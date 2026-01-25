@@ -24,6 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
+
 command=~/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=25
 markup=none
@@ -40,7 +41,6 @@ color=#ffff00
 instance=Master
 interval=once
 signal=10
-command=/usr/share/i3blocks/volume 5 pulse
 
 # Memory usage
 #
@@ -65,27 +65,25 @@ interval=10
 [disk]
 label=HOME
 color=#88cc88
-#instance=/mnt/data
 interval=30
 
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-instance=wlan0
-interval=10
-separator=false
+# [iface]
+# instance=wlan0
+# interval=10
+# separator=false
 
 [wifi]
 instance=wlp5s0
 label=wifi
 interval=10
 separator=false
-command=~/.config/i3blocks/wifi/wifi
 
 # [bandwidth]
-#instance=eth0
+# instance=eth0
 # interval=5
 
 # CPU usage
@@ -102,7 +100,6 @@ min_width=CPU:100.%
 label=🔆
 interval=10
 color=#FFFF00
-command=~/.config/i3blocks/brightness/brightness
 signal=13
 
 # Battery indicator
@@ -110,14 +107,13 @@ signal=13
 # The battery instance defaults to 0.
 [battery]
 label=⚡
-command=~/.config/i3blocks/battery/battery
 #instance=1
 interval=30
 color=#FFDC73
 
 # Date Time
 #
-[time]
+[date]
 command=date '+%a %m-%d-%y'
 interval=1
 separator=true
