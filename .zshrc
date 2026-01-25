@@ -3,15 +3,15 @@
 ##
 # Source Znap at the start of your .zshrc file.
 #
+[[ -d ~/.zsh-plugins ]] || mkdir ~/.zsh-plugins
 [[ -r ~/.zsh-plugins/znap/znap.zsh ]] ||
     git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/.zsh-plugins/znap
+# znap will handle pulling all required plugins itself
 source ~/.zsh-plugins/znap/znap.zsh
 
-
-# `znap prompt` also supports Oh-My-Zsh themes. Just make sure you load the
-# required libs first:
 znap source ohmyzsh/ohmyzsh
 
+# you might need to remove the compiled file *.zwc if you see garbled text
 # znap prompt sindresorhus/pure
 znap prompt ohmyzsh/ohmyzsh themes/gnzh
 
