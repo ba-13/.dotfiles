@@ -37,8 +37,11 @@ exec --no-startup-id mount /mnt/storage
 
 exec --no-startup-id numlockx on
 exec --no-startup-id flameshot 
+exec --no-startup-id copyq
 exec --no-startup-id setxkbmap -option compose:caps
 exec --no-startup-id xset s off -dpms
+
+exec --no-startup-id redshift-gtk
 
 # exec --no-startup-id xrandr --output $sm --auto --right-of $pm
 
