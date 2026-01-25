@@ -29,7 +29,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # set wallpaper
-exec_always feh --bg-fill /home/ba13/Pictures/Wallpapers/levels.jpg
+exec_always feh --bg-fill $HOME/Wallpapers/levels.jpg
 
 # try to mount drives, present in fstab
 exec --no-startup-id mount /mnt/workspace
