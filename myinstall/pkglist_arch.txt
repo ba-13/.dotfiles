@@ -4,11 +4,15 @@ autorandr
 baobab
 base
 base-devel
+boost
 brightnessctl
+cmake
 copyq
 dex
 dmenu
+doxygen
 efibootmgr
+eigen3
 feh
 firefox
 flameshot
@@ -26,6 +30,8 @@ linux-firmware
 nautilus
 network-manager-applet
 networkmanager
+ninja
+noto-fonts-emoji
 pamixer
 pipewire
 pipewire-pulse
