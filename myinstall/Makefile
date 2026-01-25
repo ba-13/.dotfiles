@@ -26,6 +26,10 @@ endif
 install-uv:
 	curl -LsSf https://astral.sh/uv/install.sh | sh
 
-install-zotero:
-	wget --content-disposition "https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64" -O Zotero.tar.xz
-	tar -x Zotero.tar.xz
+store-current-pkgs:
+ifeq ($(OS_ID), arch)
+	pacman -Qenq > pkglist_arch.txt
+	pacman -Qemq | grep -v 'yay*' > pkglist_aur.txt
+else ifeq ($(OS_ID), ubuntu)
+	apt-mark showmanual > pkglist_ubuntu.txt
+endif
