@@ -35,7 +35,18 @@ else ifeq ($(OS_ID), ubuntu)
 endif
 
 systemctl-enable:
+	@echo Warning: enabling systemctl, reboot afterwards\; Continue? [Y/n]
+	@read line; if [ $$line != "y" ]; then echo aborting; exit 1 ; fi
 	sudo systemctl enable NetworkManager
 	sudo systemctl enable iwd
 	systemctl --user enable pipewire wireplumber
 	sudo systemctl enable tlp.service
+
+make-swapfile:
+	@echo Warning: Creating swap\; Continue? [Y/n]
+	@read line; if [ $$line != "y" ]; then echo aborting; exit 1 ; fi
+	sudo fallocate -l 8G /swapfile
+	sudo chmod 600 /swapfile
+	sudo mkswap /swapfile
+	sudo swapon /swapfile
+	swapon --show

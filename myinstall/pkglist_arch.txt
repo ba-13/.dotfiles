@@ -37,6 +37,7 @@ sysstat
 tldr
 tlp
 tmux
+tree
 ttf-ubuntu-font-family
 wget
 wireplumber
