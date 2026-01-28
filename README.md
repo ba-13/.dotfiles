@@ -5,14 +5,13 @@ To setup a new PC with either OS, use the following commands, picked from [atlas
 
 ```bash
 git clone --bare git@github.com:ba-13/.dotfiles $HOME/.cfg
-function config {
-	/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME $@
-}
+alias config="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
 mkdir -p .config-backup
 config checkout
 if [ $? = 0 ]; then
 	echo "Checked out config";
+	rmdir .config-backup
 else
 	echo "Backing up pre-existing dotfiles";
 	config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
@@ -25,5 +24,7 @@ fi;
 config config status.showUntrackedFiles no
 ```
 
-One needs to add new dotfiles manually using `config add`
+One needs to add new dotfiles/configuration files manually using `config add -f`, keeping them consciously leads to a cleaner
+workspace. The root files which are changed are kept in `system/` folder, replicating the file structure where they are present. Therefore
+whenever one changes a root owned file, it is recommended to either copy the final form here, or hard link it.
 
