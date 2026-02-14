@@ -143,7 +143,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 set background=dark
-"colorscheme hybrid_material
+colorscheme catppuccin
 
 nmap <C-Z> :vsplit <bar> :wincmd l <bar> :FSRight<CR>
 
