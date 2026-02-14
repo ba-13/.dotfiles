@@ -24,7 +24,8 @@ fi;
 config config status.showUntrackedFiles no
 ```
 
-One needs to add new dotfiles/configuration files manually using `config add -f`, keeping them consciously leads to a cleaner
+All files are ignored by default using `.gitignore`. One needs to add new dotfiles/configuration files manually using `config add -f`, keeping them consciously leads to a cleaner
 workspace. The root files which are changed are kept in `system/` folder, replicating the file structure where they are present. Therefore
-whenever one changes a root owned file, it is recommended to either copy the final form here, or hard link it.
+whenever one changes a root owned file, it is recommended to either copy the final form here, or hard link it (I am copying to not mess with the permissions).
+Force adding a file makes git start keeping track of them, so modifying those files can be easily done `config add -A` without force again.
 

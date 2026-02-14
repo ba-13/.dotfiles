@@ -287,6 +287,10 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 # bar toggle, hide or show
 bindsym $mod+m bar mode toggle
 
+# Keyboard layout
+# exec --no-startup-id setxkbmap -layout us,in -variant ,bolnagri -option grp:alt_shift_toggle
+
+
 # remove titlebar
 # default_border pixel 0
 # default_floating_border pixel 0
