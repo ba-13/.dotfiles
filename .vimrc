@@ -1,6 +1,7 @@
 " Don't try to be vi compatible
 set nocompatible
 syntax on
+set noundofile
 
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
@@ -143,7 +144,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 set background=dark
-colorscheme catppuccin
 
 nmap <C-Z> :vsplit <bar> :wincmd l <bar> :FSRight<CR>
 
