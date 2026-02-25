@@ -33,7 +33,7 @@ znap source marlonrichert/zsh-autocomplete
 znap source marlonrichert/zsh-edit
 
 # ------------------------------
-# Prompt (bira-inspired, no OMZ)
+# Prompt (bira-inspired)
 # ------------------------------
 
 autoload -U colors vcs_info
@@ -80,7 +80,7 @@ build_prompt() {
   fi
 
 PROMPT="╭─${venv}${user_host} ${current_dir} ${git_branch}
-╰─${arrow_color}➤ %f"
+╰─${arrow_color}➤  %f"
 
   RPROMPT="${return_code}"
 }
