@@ -122,6 +122,7 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
+colorscheme gruvbox
 
 " Autocomplete brackets
 "inoremap ( ()<left>
@@ -142,8 +143,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-set background=dark
 
 nmap <C-Z> :vsplit <bar> :wincmd l <bar> :FSRight<CR>
 
