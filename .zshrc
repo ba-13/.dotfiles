@@ -16,9 +16,21 @@ HISTFILE=~/.zsh_history
 # znap will handle pulling all required plugins itself
 source ~/.zsh-plugins/znap/znap.zsh
 
-# ------------------------------
+znap source ohmyzsh/ohmyzsh
+
+# you might need to remove the compiled file *.zwc if you see garbled text
+# znap prompt sindresorhus/pure
+znap prompt ohmyzsh/ohmyzsh themes/gnzh
+
+##
 # Load your plugins with `znap source`.
-# ------------------------------
+#
+# You can also choose to load one or more files specifically:
+znap source sorin-ionescu/prezto modules/{environment,history}
+
+# No special syntax is needed to configure plugins. Just use normal Zsh
+# statements:
+
 znap source marlonrichert/zsh-hist
 bindkey '^[q' push-line-or-edit
 bindkey -r '^Q' '^[Q'
@@ -32,64 +44,9 @@ znap source zsh-users/zsh-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
 znap source marlonrichert/zsh-edit
 
-# ------------------------------
-# Prompt (bira-inspired)
-# ------------------------------
-
-autoload -U colors vcs_info
-colors
-setopt prompt_subst
-
-# Git info
-zstyle ':vcs_info:git:*' formats '%F{yellow}‹%b%u›%f'
-zstyle ':vcs_info:git:*' actionformats '%F{yellow}‹%b|%a%u›%f'
-zstyle ':vcs_info:git:*' unstagedstr '*'
-zstyle ':vcs_info:git:*' stagedstr '+'
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-
-precmd() { vcs_info }
-
-build_prompt() {
-  local user_color host_color arrow_color
-
-  # Root vs normal user
-  if [[ $EUID -eq 0 ]]; then
-    user_color='%F{red}'
-    arrow_color='%F{red}'
-  else
-    user_color='%F{green}'
-    arrow_color='%f'
-  fi
-
-  # SSH detection
-  if [[ -n "$SSH_CONNECTION" ]]; then
-    host_color='%F{red}'
-  else
-    host_color='%F{green}'
-  fi
-
-  local user_host="${user_color}%n%f%F{cyan}@${host_color}%m%f"
-  local current_dir="%B%F{blue}%~%f%b"
-  local git_branch="${vcs_info_msg_0_}"
-
-  local return_code="%(?..%F{red}%? ↵%f)"
-  local venv=""
-  if [[ -n "$VIRTUAL_ENV" ]]; then
-    venv="%F{red}(${VIRTUAL_ENV:t})%f "
-  fi
-
-PROMPT="╭─${venv}${user_host} ${current_dir} ${git_branch}
-╰─${arrow_color}➤  %f"
-
-  RPROMPT="${return_code}"
-}
-
-precmd_functions+=(build_prompt)
-
-# ------------------------------
+##
 # Cache the output of slow commands with `znap eval`.
-# ------------------------------
+#
 
 # If the first arg is a repo, then the command will run inside it. Plus,
 # whenever you update a repo with `znap pull`, its eval cache gets regenerated
