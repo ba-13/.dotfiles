@@ -2,6 +2,9 @@
 set nocompatible
 syntax on
 set noundofile
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
@@ -147,4 +150,4 @@ nnoremap <C-l> <C-w>l
 nmap <C-Z> :vsplit <bar> :wincmd l <bar> :FSRight<CR>
 
 set clipboard=unnamed
-
+set colorcolumn=74

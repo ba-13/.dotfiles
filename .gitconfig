@@ -8,3 +8,5 @@
 	autocrlf = false
 	editor = vim
 	fileMode = false
+[credential]
+	helper = store
