@@ -10,6 +10,7 @@ bluez
 bluez-utils
 boost
 brightnessctl
+calibre
 cifs-utils
 cmake
 copyq
@@ -21,6 +22,7 @@ docker-compose
 doxygen
 efibootmgr
 eigen3
+element-desktop
 evince
 feh
 firefox
@@ -41,6 +43,7 @@ libreoffice-fresh
 linux
 linux-firmware
 maim
+mesa-utils
 nautilus
 network-manager-applet
 networkmanager
@@ -48,6 +51,8 @@ ninja
 noto-fonts-emoji
 obsidian
 pamixer
+pavucontrol
+perl-file-homedir
 perl-yaml-tiny
 pipewire
 pipewire-pulse
@@ -68,8 +73,11 @@ texlive-latexextra
 tldr
 tlp
 tmux
+transmission-gtk
 tree
 ttf-ubuntu-font-family
+vlc
+vlc-plugin-ffmpeg
 wget
 wireplumber
 xclip

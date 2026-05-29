@@ -1,7 +1,7 @@
 # ------------------------------
 # Basic shell options
 # ------------------------------
-setopt AUTO_CD
+# setopt AUTO_CD
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
