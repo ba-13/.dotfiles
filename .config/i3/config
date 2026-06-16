@@ -39,7 +39,6 @@ exec --no-startup-id mount /mnt/workspace
 exec --no-startup-id mount /mnt/storage
 
 exec --no-startup-id numlockx on
-exec --no-startup-id flameshot 
 exec --no-startup-id copyq
 exec --no-startup-id setxkbmap -option compose:caps
 exec --no-startup-id xset s off -dpms
@@ -278,9 +277,9 @@ bar {
 }
 
 # Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date +"%Y_%m_%d_%I_%M_%p)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date +"%Y_%m_%d_%I_%M_%p)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date +"%Y_%m_%d_%I_%M_%p)"
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date +"%Y_%m_%d_%I_%M_%p).png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date +"%Y_%m_%d_%I_%M_%p).png"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date +"%Y_%m_%d_%I_%M_%p).png"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
