@@ -1,3 +1,5 @@
+brave-bin
 coin-or-ipopt
+foxglove-bin
 visual-studio-code-bin
 zotero-bin
