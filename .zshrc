@@ -5,8 +5,8 @@
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=50000
+SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
 # Source Znap at the start of your .zshrc file.
