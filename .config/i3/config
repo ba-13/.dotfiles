@@ -42,6 +42,8 @@ exec --no-startup-id numlockx on
 exec --no-startup-id copyq
 exec --no-startup-id setxkbmap -option compose:caps
 exec --no-startup-id xset s off -dpms
+# for gnome-keyring
+exec --no-startup-id dbus-update-activation-environment --systemd --all
 
 # exec --no-startup-id redshift-gtk
 

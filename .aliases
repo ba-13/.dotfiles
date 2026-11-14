@@ -2,3 +2,4 @@ alias c="clear"
 alias rp="chmod +x"
 alias clip="xclip -sel clip"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
+alias configui='GIT_DIR=$HOME/.cfg GIT_WORK_TREE=$HOME gitui'

@@ -26,22 +26,24 @@ znap prompt ohmyzsh/ohmyzsh themes/gnzh
 # Load your plugins with `znap source`.
 #
 # You can also choose to load one or more files specifically:
-znap source sorin-ionescu/prezto modules/{environment,history}
 
 # No special syntax is needed to configure plugins. Just use normal Zsh
 # statements:
 
-znap source marlonrichert/zsh-hist
 bindkey '^[q' push-line-or-edit
 bindkey -r '^Q' '^[Q'
 
 ZSH_AUTOSUGGEST_STRATEGY=( history )
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 znap source zsh-users/zsh-autosuggestions
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 znap source zsh-users/zsh-syntax-highlighting
 
-znap source marlonrichert/zsh-autocomplete
+# Standard completion with cached dump (replaces zsh-autocomplete, which ran on every keystroke)
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then compinit; else compinit -C; fi
 znap source marlonrichert/zsh-edit
 
 ##
@@ -89,9 +91,20 @@ export PATH=$HOME/gems/bin:$PATH
 [ -f "/home/ba13/.ghcup/env" ] && . "/home/ba13/.ghcup/env" # ghcup-env
 
 export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Lazy-load nvm on first use
+_nvm_lazy() {
+  unset -f nvm node npm npx _nvm_lazy
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+for _c in nvm node npm npx; do eval "$_c() { _nvm_lazy; $_c \"\$@\"; }"; done
+unset _c
 
 . "$HOME/.local/share/../bin/env"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# Tab completes without expanding $VARS into their values
+# (znap defaults the completer to _expand, which offers the expanded path)
+zstyle ':completion:*' completer _complete _ignored
+bindkey '^I' expand-or-complete
