@@ -82,7 +82,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Applications:$PATH"
 
 # History Ignore
-export HISTORY_IGNORE="pwd:ls"
+export HISTORY_IGNORE="pwd|ls"
 
 # Install Ruby Gems to local
 export GEM_HOME=$HOME/gems
@@ -91,6 +91,8 @@ export PATH=$HOME/gems/bin:$PATH
 [ -f "/home/ba13/.ghcup/env" ] && . "/home/ba13/.ghcup/env" # ghcup-env
 
 export NVM_DIR="$HOME/.config/nvm"
+# ln -sfn .config/nvm/versions/node/vx.y.z to this file
+export PATH="$NVM_DIR/current/bin:$PATH"
 # Lazy-load nvm on first use
 _nvm_lazy() {
   unset -f nvm node npm npx _nvm_lazy

@@ -1,16 +1,25 @@
 " Don't try to be vi compatible
 set nocompatible
 syntax on
-set noundofile
+set undofile
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
+
 " Helps force plugins to load correctly when it is turned back on below
-filetype off
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " for LSP
+call plug#end()
+filetype plugin indent on
 
 " Pick a leader key
 let mapleader = ","
+
+" Per-plugin configs (must come after plug#end and mapleader)
+for f in sort(glob('~/.vim/config/*.vim', 0, 1))
+  execute 'source' fnameescape(f)
+endfor
 
 " Security
 set modelines=0
@@ -76,8 +85,7 @@ set showcmd
 set wildmenu
 set wildmode=list:longest
 set cursorline
-" set relativenumber
-set undofile
+"set relativenumber
 
 " Searching
 nnoremap / /\v
@@ -88,9 +96,9 @@ set gdefault
 set ignorecase
 set smartcase
 set showmatch
-map <leader><space> :let @/=''<cr> " clear search
+" clear search
+map <leader><space> :let @/=''<cr> 
 
-nnoremap <tab> %
 vnoremap <tab> %
 
 " Remap help key.
@@ -104,7 +112,6 @@ nnoremap ; :
 " Copy paste from vim
 " requires gvim installed (clipboard support)
 vnoremap <C-c> "*y :let @+=@*<CR>
-map <C-v> "+P
 
 " Textmate holdouts
 
