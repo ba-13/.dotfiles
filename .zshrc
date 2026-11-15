@@ -88,7 +88,6 @@ export HISTORY_IGNORE="pwd|ls"
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
 
-[ -f "/home/ba13/.ghcup/env" ] && . "/home/ba13/.ghcup/env" # ghcup-env
 
 export NVM_DIR="$HOME/.config/nvm"
 # ln -sfn .config/nvm/versions/node/vx.y.z to this file
@@ -105,6 +104,7 @@ unset _c
 . "$HOME/.local/share/../bin/env"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+[ -f "/home/ba13/.ghcup/env" ] && . "/home/ba13/.ghcup/env" # ghcup-env
 
 # Tab completes without expanding $VARS into their values
 # (znap defaults the completer to _expand, which offers the expanded path)

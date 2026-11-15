@@ -1,4 +1,7 @@
 # by Rito Ghosh 2023-10-06
+[general]
+
+working_directory = "~"
 
 [window]
 
@@ -13,3 +16,8 @@ decorations_theme_variant = "Dark"
 [font]
 
 size = 13.0
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

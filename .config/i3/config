@@ -35,8 +35,8 @@ exec --no-startup-id blueman-applet
 exec_always feh --bg-fill $HOME/Wallpapers/levels.jpg
 
 # try to mount drives, present in fstab
-exec --no-startup-id mount /mnt/workspace
-exec --no-startup-id mount /mnt/storage
+# exec --no-startup-id mount /mnt/workspace
+# exec --no-startup-id mount /mnt/storage
 
 exec --no-startup-id numlockx on
 exec --no-startup-id copyq
