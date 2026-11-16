@@ -1,6 +1,0 @@
-#!/bin/zsh
-
-curr=$(cat /sys/class/backlight/*/actual_brightness)
-max=$(cat /sys/class/backlight/*/max_brightness)
-val=$(( (100.0 * $curr) / $max ))
-echo $val | awk '{print int($1+0.5)}'

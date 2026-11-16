@@ -26,13 +26,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 # Also start bluetooth applet
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 
 
 # set wallpaper
-exec_always feh --bg-fill $HOME/Wallpapers/levels.jpg
+exec_always feh --bg-fill $HOME/Wallpapers/moon.jpg
 
 # try to mount drives, present in fstab
 # exec --no-startup-id mount /mnt/workspace
@@ -193,14 +193,13 @@ for_window [class="xpad"] floating enable move to workspace $ws9
 for_window [class="SFML"] floating enable
 for_window [class="matplotlib"] floating enable
 
-# gaps inner 5 px
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout?' -B 'YES' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -229,28 +228,31 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $taskbar-color       #25282B
-set $bg-color            #353839
-set $inactive-bg-color   #2d1e23
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $orange-color        #FFA500
-set $border-color        #9e9e9e
-set $gold-color          #ffdc73
+# hide_edge_borders both
 
-# window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $gold-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+default_border pixel 4
+default_floating_border pixel 4
 
-hide_edge_borders both
+gaps inner 12
+gaps outer 6
+
+set $rosewater #f5e0dc
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $overlay0  #6c7086
+set $base      #1e1e2e
+set $peach     #fab387
+
+# class                 border    backgr. text    indicator child_border
+client.focused          $lavender $base   $text   $rosewater $lavender
+client.focused_inactive $overlay0 $base   $text   $rosewater $overlay0
+client.unfocused        $overlay0 $base   $text   $rosewater $overlay0
+client.urgent           $peach    $base   $peach  $overlay0  $peach
+client.placeholder      $overlay0 $base   $text   $overlay0  $overlay0
 
 # Brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%, exec pkill -SIGRTMIN+13 i3blocks
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-, exec pkill -SIGRTMIN+13 i3blocks
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%, exec pkill -SIGRTMIN+11 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-, exec pkill -SIGRTMIN+11 i3blocks
 
 bindsym $mod+shift+d exec nautilus --new-window
 
@@ -259,23 +261,26 @@ bindsym $mod+shift+x exec systemctl suspend
 # bindsym $mod+d exec --no-startup-id "rofi -show drun"
 
 # bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
-bindsym $mod+p exec --no-startup-id powermenu_t2
+# bindsym $mod+p exec --no-startup-id powermenu_t2
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-        mode dock
-        hidden_state hide
-        modifier $mod
-        status_command i3blocks
-        position top
-        colors {
-            background $taskbar-color
-            separator $border-color
-            focused_workspace   $gold-color		$bg-color           $gold-color
-            inactive_workspace  $border-color   $inactive-bg-color  $inactive-text-color
-            urgent_workspace    $border-color   $urgent-bg-color    $text-color
-        }
+    font pango:JetBrainsMono Nerd Font 11
+    status_command i3blocks
+    position top
+    padding 2px 4px
+
+    colors {
+        background         $base
+        statusline         $text
+        separator          $overlay0
+
+        # class            border    backgr.   text
+        focused_workspace  $lavender $lavender $base
+        active_workspace   $overlay0 $base     $text
+        inactive_workspace $base     $base     $overlay0
+        urgent_workspace   $peach    $peach    $base
+        binding_mode       $peach    $peach    $base
+    }
 }
 
 # Screenshots
@@ -292,8 +297,4 @@ bindsym $mod+m bar mode toggle
 
 # Keyboard layout
 # exec --no-startup-id setxkbmap -layout us,in -variant ,bolnagri -option grp:alt_shift_toggle
-exec --no-startup-id redshift-gtk
 
-# remove titlebar
-# default_border pixel 0
-# default_floating_border pixel 0
