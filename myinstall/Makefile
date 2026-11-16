@@ -50,3 +50,10 @@ make-swapfile:
 	sudo mkswap /swapfile
 	sudo swapon /swapfile
 	swapon --show
+
+setup-vim:
+	@echo Warning: setting up plug and installing Coc
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim +PlugInstall +qa
+	vim +CocInstall coc-pyright coc-clangd coc-rls +qa
