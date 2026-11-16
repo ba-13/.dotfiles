@@ -1,0 +1,75 @@
+* {
+    bg-col:  #1e1e2e;
+    bg-col-light: #313244;
+    border-col: #b4befe;
+    selected-col: #313244;
+    lavender: #b4befe;
+    fg-col: #cdd6f4;
+    fg-col2: #f38ba8;
+    grey: #6c7086;
+
+    width: 600;
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+window {
+    border: 4px;
+    border-color: @border-col;
+    border-radius: 0px;
+    padding: 16px;
+}
+
+mainbox {
+    spacing: 12px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @bg-col-light;
+    padding: 10px 14px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @lavender;
+    background-color: inherit;
+    padding: 0px 8px 0px 0px;
+}
+
+entry {
+    placeholder: "Search apps...";
+    placeholder-color: @grey;
+    background-color: inherit;
+    text-color: @fg-col;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 6px;
+}
+
+element {
+    padding: 8px 12px;
+    spacing: 10px;
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @lavender;
+}
+
+element-icon {
+    size: 22px;
+    background-color: inherit;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+

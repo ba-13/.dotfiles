@@ -258,10 +258,6 @@ bindsym $mod+shift+d exec nautilus --new-window
 
 # bindsym $mod+shift+x exec i3lock --nofork --color 000000 -e && systemctl suspend
 bindsym $mod+shift+x exec systemctl suspend
-# bindsym $mod+d exec --no-startup-id "rofi -show drun"
-
-# bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
-# bindsym $mod+p exec --no-startup-id powermenu_t2
 
 bar {
     font pango:JetBrainsMono Nerd Font 11
