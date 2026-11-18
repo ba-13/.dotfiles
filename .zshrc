@@ -20,7 +20,7 @@ znap source ohmyzsh/ohmyzsh
 
 # you might need to remove the compiled file *.zwc if you see garbled text
 # znap prompt sindresorhus/pure
-znap prompt ohmyzsh/ohmyzsh themes/gnzh
+znap prompt spaceship-prompt/spaceship-prompt
 
 ##
 # Load your plugins with `znap source`.
@@ -110,3 +110,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # (znap defaults the completer to _expand, which offers the expanded path)
 zstyle ':completion:*' completer _complete _ignored
 bindkey '^I' expand-or-complete
+
+# fzf: fuzzy Ctrl+R history search (and Ctrl+T / Alt+C)
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+export FZF_CTRL_R_OPTS="--height 40% --layout=reverse"
