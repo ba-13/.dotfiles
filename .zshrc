@@ -112,5 +112,10 @@ zstyle ':completion:*' completer _complete _ignored
 bindkey '^I' expand-or-complete
 
 # fzf: fuzzy Ctrl+R history search (and Ctrl+T / Alt+C)
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+for dir in /usr/share/fzf /usr/share/doc/fzf/examples; do
+  # Arch has this in the first folder
+  # Ubuntu uses the second
+  [[ -r $dir/key-bindings.zsh ]] && source $dir/key-bindings.zsh
+  [[ -r $dir/completion.zsh ]] && source $dir/completion.zsh
+done
 export FZF_CTRL_R_OPTS="--height 40% --layout=reverse"

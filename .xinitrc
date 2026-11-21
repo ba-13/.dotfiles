@@ -20,6 +20,9 @@ dbus-update-activation-environment --systemd \
     DISPLAY XAUTHORITY \
     XDG_SESSION_TYPE XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
 
+eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
+export SSH_AUTH_SOCK
+
 systemctl --user reset-failed
 systemctl --user start i3-session.target
 
