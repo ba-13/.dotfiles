@@ -1,5 +1,8 @@
-brave-bin
+claude-code
+claude-desktop
 coin-or-ipopt
+eigen3
 foxglove-bin
+google-chrome
 visual-studio-code-bin
 zotero-bin
