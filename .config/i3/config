@@ -234,8 +234,8 @@ bindsym $mod+r mode "resize"
 default_border pixel 4
 default_floating_border pixel 4
 
-gaps inner 12
-gaps outer 6
+gaps inner 6
+gaps outer 3
 
 set $rosewater #f5e0dc
 set $lavender  #b4befe

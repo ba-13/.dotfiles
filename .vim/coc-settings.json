@@ -1,0 +1,23 @@
+{
+  "//": "Global CoC config. Drop this at ~/.vim/coc-settings.json (create the ~/.vim folder if it doesn't exist yet). C, C++, Python and Rust are handled by dedicated coc extensions installed via setup.sh (coc-clangd, coc-pyright, coc-rust-analyzer) and need no entry here. Haskell and MATLAB have no official coc extension, so they're wired up below as plain LSP servers.",
+  "coc.preferences.formatOnSave": true,
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": ["haskell", "lhaskell"]
+    },
+    "matlab": {
+      "command": "matlab-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["matlab"]
+    }
+  }
+}
